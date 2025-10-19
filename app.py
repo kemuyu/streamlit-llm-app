@@ -23,7 +23,7 @@ else:
     input_message = st.text_input(label="食事に関するお悩みを入力してください。")
 
 from langchain_openai import ChatOpenAI
-from langchain.schema import SystemMessage, HumanMessage
+from langchain_core.messages import SystemMessage, HumanMessage
 
 if st.button("実行"):
     st.divider()
@@ -35,7 +35,7 @@ if st.button("実行"):
             HumanMessage(content= input_message),
             ]
             result = llm(messages)
-            print(result.content)
+            st.write(result.content)
         else:
              st.write("睡眠に関するお悩みを入力してください。")
     else:
@@ -46,7 +46,7 @@ if st.button("実行"):
             HumanMessage(content= input_message),
             ]
             result = llm(messages)
-            print(result.content)
+            st.write(result.content)
         else:
             st.write("食事に関するお悩みを入力してください。")
 
