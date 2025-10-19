@@ -29,23 +29,23 @@ if st.button("実行"):
     st.divider()
     if selected_item == "睡眠の専門家":
         if input_message:
-            llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
+            llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
             messages = [
             SystemMessage(content="あなたは睡眠の専門家です。ユーザーからの質問に対して良質な睡眠をとるためのアドバイスを回答してください。"),
             HumanMessage(content= input_message),
             ]
-            result = llm(messages)
+            result = llm.invoke(messages)
             st.write(result.content)
         else:
              st.write("睡眠に関するお悩みを入力してください。")
     else:
         if input_message:
-            llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
+            llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
             messages = [
             SystemMessage(content="あなたは食事の専門家です。ユーザーからの質問に対して健康的な食事をとるためのアドバイスを回答してください。"),
             HumanMessage(content= input_message),
             ]
-            result = llm(messages)
+            result = llm.invoke(messages)
             st.write(result.content)
         else:
             st.write("食事に関するお悩みを入力してください。")
